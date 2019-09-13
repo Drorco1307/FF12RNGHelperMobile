@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FF12RngHelper.SettingsPage"
+             xmlns:local="clr-namespace:FF12RngHelper" BackgroundColor="Black" Padding="1">
+
+    <Grid RowSpacing="0" BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Margin="20">
+            <Label Text="Character Stats" TextColor="Black"/>
+            <!--#region Level-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Level:" HorizontalOptions="Center" Style="{StaticResource DefaultLabelStyle}"/>
+                <Editor Text="{Binding Level}" Placeholder="100" AutoSize="TextChanges" TextColor="Black"/>
+            </StackLayout>
+            <!--#endregion-->
+            <!--#region Magic Power-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Magic Power:" HorizontalOptions="Center" Style="{StaticResource DefaultLabelStyle}"/>
+                <Editor Text="{Binding Mag}" Placeholder="100" AutoSize="TextChanges" TextColor="Black"/>
+            </StackLayout>
+            <!--#endregion-->
+            <!--#region Spell-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Spell:" HorizontalOptions="Center" Style="{StaticResource DefaultLabelStyle}"/>
+                <Picker ItemsSource="{Binding Spells, Converter={local:EnumToDisplayStringConverter}}" SelectedItem="{Binding SelectedSpell, Converter={local:EnumToDisplayStringConverter}}" SelectedIndex="0" HorizontalOptions="StartAndExpand" Title="Choose a spell" FontSize="Large" TextColor="Black"/>
+            </StackLayout>
+            <!--#endregion-->
+            <!--#region Serenity Modifier-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Serenity?" HorizontalOptions="Center" Style="{StaticResource DefaultLabelStyle}"/>
+                <local:ToggleSwitch Style="{StaticResource DefaultSwitchStyle}" IsToggled="{Binding IsSerenity}"/>
+            </StackLayout>
+            <!--#endregion-->
+        </StackLayout>
+
+        <!--#region Platform-->
+        <StackLayout Grid.Row="1" Margin="20">
+            <Label Text="Platform" TextColor="Black"/>
+            <Picker Title="Choose a platform" 
+                    ItemsSource="{Binding Platforms}" 
+                    SelectedItem="{Binding SelectedPlatform}" 
+                    SelectedIndex="0" 
+                    FontSize="Large" 
+                    HorizontalOptions="StartAndExpand" 
+                    TextColor="Black"/>
+        </StackLayout>
+        <!--#endregion-->
+    </Grid>
+</ContentPage>

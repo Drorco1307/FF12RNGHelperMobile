@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FF12RngHelper"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             x:Class="FF12RngHelper.App">
+    <Application.Resources>
+
+        <Style TargetType="ContentPage" x:Key="DefaultPageStyle">
+            <Setter Property="BackgroundColor" Value="White"/>
+        </Style>
+
+        <Style TargetType="{x:Type Label}" x:Key="DefaultLabelStyle">
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+
+        <Style TargetType="{x:Type Editor}" x:Key="DefaultEditorStyle">
+            <Setter Property="AutoSize" Value="TextChanges"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+
+        <Style TargetType="{x:Type local:ToggleSwitch}" x:Key="DefaultSwitchStyle">
+            <Setter Property="SwitchOffColor" Value="Gray"/>
+            <Setter Property="SwitchOnColor" Value="Red"/>
+            <Setter Property="SwitchThumbColor" Value="Red"/>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="DefaultButtonStyle">
+            <Setter Property="BackgroundColor" Value="LightGray"/>
+            <Setter Property="FontSize" Value="Small"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+
+        <Style TargetType="{x:Type Label}" x:Key="GroupHeaderLabelStyle" BasedOn="{StaticResource DefaultLabelStyle}">
+            <Setter Property="FontSize" Value="Small"/>
+        </Style>
+        
+        <Style TargetType="{x:Type Label}" x:Key="DataGridCellStyle" BasedOn="{StaticResource DefaultLabelStyle}">
+            <Setter Property="FontSize" Value="Micro"/>
+            <Setter Property="Margin" Value="2,0,2,5"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Text" Value="{Binding}"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+
+        <Style TargetType="{x:Type Label}" x:Key="DataGridHeaderStyle" BasedOn="{StaticResource DataGridCellStyle}">
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FF12RngHelper"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             x:Class="FF12RngHelper.MainContent"
+             Padding="1"
+             BackgroundColor="Black"
+             Style="{StaticResource DefaultPageStyle}">
+    
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--#region RNG heal value search-->
+        <StackLayout Margin="5">
+            <Label Text="RNG Search" Style="{StaticResource GroupHeaderLabelStyle}"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Last Heal Value:" Style="{StaticResource DefaultLabelStyle}" LineBreakMode="CharacterWrap" HorizontalOptions="Start"/>
+                <Editor Text="{Binding LastHeal}" Style="{StaticResource DefaultEditorStyle}" HorizontalOptions="StartAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+        <!--#endregion-->
+        <!--#region Begin & Continue-->
+        <Grid Grid.Row="1" Margin="5,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Continue" Grid.Column="0"  Command="{Binding ContinueCommand}" Style="{StaticResource DefaultButtonStyle}"/>
+            <Button Text="Begin Search" Grid.Column="1" Command="{Binding BeginSearchCommand}" Style="{StaticResource DefaultButtonStyle}"/>
+        </Grid>
+        <!--#endregion-->
+        <!--#region IsBusy Spinner-->
+        <ActivityIndicator IsRunning="True" 
+                           Grid.Row="2" 
+                           Color="Red" 
+                           IsVisible="{Binding IsBusy}"/>
+        <!--#endregion-->
+        <!--#region Rng Grid Data-->
+        <dg:DataGrid Grid.Row="2" 
+                     ItemsSource="{Binding RngGridData}" 
+                     SelectionEnabled="True" 
+                     ActiveRowColor="DarkRed" 
+                     HeaderBackground="DarkOliveGreen"
+                     BorderColor="#FFFFFF"
+                     Margin="5,0" 
+                     SelectedItem="{Binding SelectedGridRow}"
+                     HeaderLabelStyle="{StaticResource DataGridHeaderStyle}">
+            <x:Arguments>
+                <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
+            </x:Arguments>
+            <dg:DataGrid.Columns>
+                <!--#region Position-->
+                <dg:DataGridColumn Title="Position" PropertyName="Position" Width=".8*" >
+                    <dg:DataGridColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Style="{StaticResource DataGridCellStyle}"/>
+                        </DataTemplate>
+                    </dg:DataGridColumn.CellTemplate>
+                </dg:DataGridColumn>
+                <!--#endregion-->
+                <!--#region Heal Value-->
+                <dg:DataGridColumn Title="Value" PropertyName="Value" Width=".6*">
+                    <dg:DataGridColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Style="{StaticResource DataGridCellStyle}"/>
+                        </DataTemplate>
+                    </dg:DataGridColumn.CellTemplate>
+                </dg:DataGridColumn>
+                <!--#endregion-->
+                <!--#region Chest Item %-->
+                <dg:DataGridColumn Title="%" PropertyName="Percent" Width=".4*">
+                    <dg:DataGridColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Style="{StaticResource DataGridCellStyle}"/>
+                        </DataTemplate>
+                    </dg:DataGridColumn.CellTemplate>
+                </dg:DataGridColumn>
+                <!--#endregion-->
+                <!--#region 1/256-->
+                <dg:DataGridColumn Title="1/256?" PropertyName="OneIn256" Width=".6*">
+                    <dg:DataGridColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Style="{StaticResource DataGridCellStyle}"/>
+                        </DataTemplate>
+                    </dg:DataGridColumn.CellTemplate>
+                </dg:DataGridColumn>
+                <!--#endregion-->
+                <!--#region Regular Steal Chances-->
+                <dg:DataGridColumn Title="Steal" PropertyName="Steal" Width=".7*">
+                    <dg:DataGridColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Style="{StaticResource DataGridCellStyle}"/>
+                        </DataTemplate>
+                    </dg:DataGridColumn.CellTemplate>
+                </dg:DataGridColumn>
+                <!--#endregion-->
+                <!--#region Steal Chances w/ Thief's Cuffs-->
+                <dg:DataGridColumn Title="Steal w/ Cuffs" PropertyName="StealCuffs" Width="1*">
+                    <dg:DataGridColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Style="{StaticResource DataGridCellStyle}"/>
+                        </DataTemplate>
+                    </dg:DataGridColumn.CellTemplate>
+                </dg:DataGridColumn>
+                <!--#endregion-->
+            </dg:DataGrid.Columns>
+        </dg:DataGrid>
+        <!--#endregion-->
+    </Grid>
+</ContentPage>
