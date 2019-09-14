@@ -15,19 +15,22 @@
             <!--#region Level-->
             <StackLayout Orientation="Horizontal">
                 <Label Text="Level:" HorizontalOptions="Center" Style="{StaticResource DefaultLabelStyle}"/>
-                <Editor Text="{Binding Level}" Placeholder="100" AutoSize="TextChanges" TextColor="Black"/>
+                <Editor Text="{Binding Level}" Style="{StaticResource StatsEditorStyle}"/>
             </StackLayout>
             <!--#endregion-->
             <!--#region Magic Power-->
             <StackLayout Orientation="Horizontal">
                 <Label Text="Magic Power:" HorizontalOptions="Center" Style="{StaticResource DefaultLabelStyle}"/>
-                <Editor Text="{Binding Mag}" Placeholder="100" AutoSize="TextChanges" TextColor="Black"/>
+                <Editor Text="{Binding Mag}" Style="{StaticResource StatsEditorStyle}"/>
             </StackLayout>
             <!--#endregion-->
             <!--#region Spell-->
             <StackLayout Orientation="Horizontal">
                 <Label Text="Spell:" HorizontalOptions="Center" Style="{StaticResource DefaultLabelStyle}"/>
-                <Picker ItemsSource="{Binding Spells, Converter={local:EnumToDisplayStringConverter}}" SelectedItem="{Binding SelectedSpell, Converter={local:EnumToDisplayStringConverter}}" SelectedIndex="0" HorizontalOptions="StartAndExpand" Title="Choose a spell" FontSize="Large" TextColor="Black"/>
+                <Picker ItemsSource="{Binding Spells, Converter={local:EnumToDisplayStringConverter}}" 
+                        SelectedItem="{Binding SelectedSpell, Converter={local:EnumToDisplayStringConverter}}" 
+                        Title="Choose a spell" 
+                        Style="{StaticResource DefaultPickerStlye}"/>
             </StackLayout>
             <!--#endregion-->
             <!--#region Serenity Modifier-->
@@ -43,11 +46,8 @@
             <Label Text="Platform" TextColor="Black"/>
             <Picker Title="Choose a platform" 
                     ItemsSource="{Binding Platforms}" 
-                    SelectedItem="{Binding SelectedPlatform}" 
-                    SelectedIndex="0" 
-                    FontSize="Large" 
-                    HorizontalOptions="StartAndExpand" 
-                    TextColor="Black"/>
+                    SelectedItem="{Binding SelectedPlatform}"
+                    Style="{StaticResource DefaultPickerStlye}"/>
         </StackLayout>
         <!--#endregion-->
     </Grid>

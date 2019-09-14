@@ -252,6 +252,7 @@ namespace FF12RngHelper
         {
             await RunCommandAsync(() => IsBusy, async () =>
              {
+                 // TODO: make all this logic asyncronous.
                  mGroup.ResetIndex();
                  mHealVals.Clear();
                  mSearchBuff = new CircularBuffer<uint>(SEARCH_BUFFER_SIZE);
@@ -273,6 +274,7 @@ namespace FF12RngHelper
         {
             await RunCommandAsync(() => IsBusy, async () =>
              {
+                 // TODO: make all this logic asyncronous.
                  int groupIndex_temp = mGroup.GetIndex();
                  int index_temp = mIndex;
                  List<int> healVals_temp = new List<int>(mHealVals);

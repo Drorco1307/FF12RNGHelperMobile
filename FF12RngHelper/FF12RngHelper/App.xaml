@@ -19,6 +19,12 @@
         <Style TargetType="{x:Type Editor}" x:Key="DefaultEditorStyle">
             <Setter Property="AutoSize" Value="TextChanges"/>
             <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Keyboard" Value="Numeric"/>
+        </Style>
+
+        <Style TargetType="{x:Type Editor}" x:Key="StatsEditorStyle" BasedOn="{StaticResource DefaultEditorStyle}">
+            <Setter Property="MaxLength" Value="2"/>
+            <Setter Property="Placeholder" Value="99"/>
         </Style>
 
         <Style TargetType="{x:Type local:ToggleSwitch}" x:Key="DefaultSwitchStyle">
@@ -47,6 +53,13 @@
 
         <Style TargetType="{x:Type Label}" x:Key="DataGridHeaderStyle" BasedOn="{StaticResource DataGridCellStyle}">
             <Setter Property="TextColor" Value="White"/>
+        </Style>
+
+        <Style TargetType="{x:Type Picker}" x:Key="DefaultPickerStlye">
+            <Setter Property="SelectedIndex" Value="0"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+            <Setter Property="TextColor" Value="Black"/>
         </Style>
     </Application.Resources>
 </Application>

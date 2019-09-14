@@ -33,12 +33,6 @@
             <Button Text="Begin Search" Grid.Column="1" Command="{Binding BeginSearchCommand}" Style="{StaticResource DefaultButtonStyle}"/>
         </Grid>
         <!--#endregion-->
-        <!--#region IsBusy Spinner-->
-        <ActivityIndicator IsRunning="True" 
-                           Grid.Row="2" 
-                           Color="Red" 
-                           IsVisible="{Binding IsBusy}"/>
-        <!--#endregion-->
         <!--#region Rng Grid Data-->
         <dg:DataGrid Grid.Row="2" 
                      ItemsSource="{Binding RngGridData}" 
@@ -109,6 +103,13 @@
                 <!--#endregion-->
             </dg:DataGrid.Columns>
         </dg:DataGrid>
+        <!--#endregion-->
+        <Grid Grid.Row="2" Opacity=".2" BackgroundColor="Black" IsVisible="{Binding IsBusy}"></Grid>
+        <!--#region IsBusy Spinner-->
+        <ActivityIndicator IsRunning="True"
+                           Grid.Row="2" 
+                           Color="Red" 
+                           IsVisible="{Binding IsBusy}"/>
         <!--#endregion-->
     </Grid>
 </ContentPage>
